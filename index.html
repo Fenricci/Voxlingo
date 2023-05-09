@@ -1,56 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
- <meta charset="UTF-8">
- <meta name="viewport"
- content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
- <meta http-equiv="X-UA-Compatible" content="ie=edge">
- <title>Voxlingo</title>
- <style>
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;500&display=swap');
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voxlingo</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
 
-  * {
-   margin: 0;
-   padding: 0;
-   box-sizing: border-box;
-  }
+    .container {
+      text-align: center;
+    }
 
-  body {
-   background-color: #000;
-   color: #fff;
-   font-family: Arial, sans-serif;
-  }
+    .logo {
+      margin-bottom: 20px;
+    }
 
-  .header {
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   padding: 20px;
-   background-color: #000;
-   color: #fff;
-   font-size: 20px;
-  }
+    .title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #fff;
+    }
 
-  .logo {
-   color: #fff;
-   font-size: 40px;
-   font-weight: bold;
-  }
-
-  .nav-wrapper {
-   display: flex;
-   align-items: center;
-  }
-
-  .nav-link {
-   padding: 10px;
-   margin: 0 10px;
-   border-radius: 5px;
-   background-color: #ff7f2a;
-   cursor: pointer;
-  }
-
-  .card {
+    .card {
    background-color: #000;
    color: #fff;
    padding: 20px;
@@ -59,39 +41,65 @@
    box-shadow: 0px 0px 10px rgba(255,255,255,0.5);
   }
 
-  .btn {
-   padding: 10px 20px;
-   margin: 10px;
-   border-radius: 5px;
-   background-color: #ff7f2a;
-   cursor: pointer;
-   color: #fff;
-   border: none;
-  }
+    .card-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #fff;
+    }
 
-  .btn:hover {
-   background-color: #ffad5c;
-   transition: background-color 0.3s ease-in-out;
-  }
+    .card-text {
+      font-size: 16px;
+      margin-bottom: 20px;
+      color: #fff;
+    }
 
- </style>
+    .button {
+      background-color: #004433;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    }
+
+    .footer-button {
+    background-color: #004433;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 10px;
+    width: 100%;
+    }
+  </style>
 </head>
 <body>
- <header class="header">
-  <div class="logo">Voxlingo</div>
-  <nav class="nav-wrapper">
-   <div class="nav-link">Учебные карточки</div>
-   <div class="nav-link">Упражнения</div>
-   <div class="nav-link">Прогресс</div>
-  </nav>
- </header>
- <main>
-  <div class="card">
-   <h2>Начните изучение английского языка уже сегодня</h2>
-   <p>Наше приложение Voxlingo поможет вам быстро и легко выучить английский язык, используя инновационные методы обучения.</p>
-   <button class="btn">Учить английский</button>
+  <div class="container">
+    <img src="C:\Users\Админ\Voxlingo\logo.jpg" alt="Voxlingo Logo" class="logo">
+    <h1 class="title">Voxlingo</h1>
+
+    <div class="card">
+      <h2 class="card-title">Начните изучение английского языка уже сегодня</h2>
+      <p class="card-text">Наше приложение Voxlingo поможет вам быстро и легко выучить английский язык, используя инновационные методы обучения.</p>
+      <a href="#" class="button">Учить английский</a>
+    </div>
+
+    <div class="button-container">
+      <a href="#" class="footer-button">Учебные карточки</a>
+      <a href="#" class="footer-button">Упражнения</a>
+      <a href="#" class="footer-button">Прогресс</a>
+    </div>
   </div>
- </main>
- <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </body>
 </html>
