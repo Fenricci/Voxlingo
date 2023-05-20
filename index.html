@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Voxlingo</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <style>
     body {
       margin: 0;
@@ -33,13 +34,13 @@
     }
 
     .card {
-   background-color: #000;
-   color: #fff;
-   padding: 20px;
-   margin: 20px;
-   border-radius: 10px;
-   box-shadow: 0px 0px 10px rgba(255,255,255,0.5);
-  }
+      background-color: #000;
+      color: #fff;
+      padding: 20px;
+      margin: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(255,255,255,0.5);
+    }
 
     .card-title {
       font-size: 20px;
@@ -54,33 +55,150 @@
       color: #fff;
     }
 
-    .button {
-      background-color: #004433;
+    .tab-bar {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: 400px;
+      background-color: #333;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2px 20px;
+    }
+
+    .tab-bar .tab {
+      color: #a9a9a9;
+      text-decoration: none;
+      font-size: 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: color 0.3s;
+    }
+
+    .tab-bar .tab:hover {
+      color: #fff;
+    }
+
+    .tab-bar .tab.active {
+      color: #fff;
+    }
+
+    .tab-bar .tab-icon {
+      font-size: 24px;
+      margin-bottom: 5px;
+    }
+
+    .tab-bar .tab-center {
+      background-color: #fff;
+      color: #333;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.2s;
+    }
+
+    .tab-bar .tab-center:hover {
+      transform: scale(0.9);
+    }
+
+    .tab-bar .tab-center.active {
+      background-color: #333;
+      color: #fff;
+    }
+
+    .tab-bar .tab-center.active .tab-icon {
+      color: #fff;
+    }
+
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s;
+    }
+
+    .modal.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-content {
+      background-color: #333;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(255,255,255,0.5);
+      max-width: 400px;
+      width: 80%;
+    }
+
+    .modal-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .modal-button {
+      background-color: #333;
       color: #fff;
       padding: 10px 20px;
       border-radius: 4px;
       text-decoration: none;
       font-weight: bold;
       font-size: 16px;
+      transition: background-color 0.3s;
     }
 
-    .button-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
+    .modal-button:hover {
+      background-color: #555;
     }
 
-    .footer-button {
-    background-color: #004433;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 16px;
-    margin-bottom: 10px;
-    width: 100%;
+    .level-button {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .level-button:hover {
+      background-color: #555;
+      transform: scale(0.98);
+    }
+
+    .level-button-text {
+      color: #1c77c3;
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    .level-button-description {
+      font-size: 16px;
+      color: #fff;
     }
   </style>
 </head>
@@ -94,12 +212,81 @@
       <p class="card-text">Наше приложение Voxlingo поможет вам быстро и легко выучить английский язык, используя инновационные методы обучения.</p>
       <a href="#" class="button">Учить английский</a>
     </div>
+  </div>
 
-    <div class="button-container">
-      <a href="#" class="footer-button">Учебные карточки</a>
-      <a href="#" class="footer-button">Упражнения</a>
-      <a href="#" class="footer-button">Прогресс</a>
+  <nav class="tab-bar">
+    <a href="#" class="tab">
+      <i class="fas fa-home tab-icon"></i>
+    </a>
+    <a href="#" class="tab">
+      <i class="fas fa-book tab-icon"></i>
+    </a>
+    <a href="#" class="tab tab-center">
+      <i class="fas fa-plus tab-icon"></i>
+    </a>
+    <a href="#" class="tab">
+      <i class="fas fa-chart-bar tab-icon"></i>
+    </a>
+    <a href="#" class="tab">
+      <i class="fas fa-user tab-icon"></i>
+    </a>
+  </nav>
+
+  <div class="modal">
+    <div class="modal-content">
+      <h2 class="modal-title">Я владею языком на уровне:</h2>
+      <a href="#" class="level-button">
+        <span class="level-button-text">A0</span>
+        <span class="level-button-description">Beginner<br>Я знаю менее 1000 слов, понимаю лишь элементарную лексику</span>
+      </a>
+      <a href="#" class="level-button">
+        <span class="level-button-text">A1</span>
+        <span class="level-button-description">Elementary<br>Я знаю около 1500 слов, могу общаться на простые темы</span>
+      </a>
+      <a href="#" class="level-button">
+        <span class="level-button-text">A2</span>
+        <span class="level-button-description">Pre-Intermediate<br>Я знаю около 2500 слов, могу вести базовый разговор</span>
+      </a>
+      <a href="#" class="level-button">
+        <span class="level-button-text">B1</span>
+        <span class="level-button-description">Intermediate<br>Я знаю около 4000 слов, могу понимать иностранную речь</span>
+      </a>
+      <a href="#" class="level-button">
+        <span class="level-button-text">B2</span>
+        <span class="level-button-description">Upper-Intermediate<br>Я знаю около 6000 слов, могу свободно общаться</span>
+      </a>
+      <a href="#" class="level-button">
+        <span class="level-button-text">C1</span>
+        <span class="level-button-description">Advanced<br>Я владею языком на высоком уровне</span>
+      </a>
     </div>
   </div>
+
+  <script>
+    const learnButton = document.querySelector('.button');
+    const modal = document.querySelector('.modal');
+    const tabs = document.querySelectorAll('.tab');
+    const levelButtons = document.querySelectorAll('.level-button');
+
+    learnButton.addEventListener('click', function() {
+      modal.classList.add('active');
+    });
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', function() {
+        tabs.forEach(tab => tab.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+
+    levelButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        levelButtons.forEach(button => button.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+  </script>
 </body>
 </html>
+
+
