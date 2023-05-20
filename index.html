@@ -118,34 +118,42 @@
       color: #fff;
     }
 
-    .modal {
+    .bottom-sheet {
       position: fixed;
-      top: 0;
+      bottom: 0;
       left: 0;
       width: 100%;
       height: 100%;
       background-color: rgba(0, 0, 0, 0.8);
       display: flex;
-      justify-content: center;
-      align-items: center;
+      justify-content: flex-end;
+      align-items: flex-end;
       z-index: 999;
       opacity: 0;
       visibility: hidden;
       transition: opacity 0.3s, visibility 0.3s;
     }
 
-    .modal.active {
+    .bottom-sheet.active {
       opacity: 1;
       visibility: visible;
     }
 
-    .modal-content {
+    .bottom-sheet-content {
+      width: 100%;
+      max-height: 80%;
       background-color: #333;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      overflow-y: auto;
       padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0px 0px 10px rgba(255,255,255,0.5);
-      max-width: 400px;
-      width: 80%;
+      box-sizing: border-box;
+      transition: transform 0.3s;
+      transform: translateY(100%);
+    }
+
+    .bottom-sheet.active .bottom-sheet-content {
+      transform: translateY(0);
     }
 
     .modal-title {
@@ -232,8 +240,8 @@
     </a>
   </nav>
 
-  <div class="modal">
-    <div class="modal-content">
+  <div class="bottom-sheet">
+    <div class="bottom-sheet-content">
       <h2 class="modal-title">Я владею языком на уровне:</h2>
       <a href="#" class="level-button">
         <span class="level-button-text">A0</span>
@@ -264,12 +272,12 @@
 
   <script>
     const learnButton = document.querySelector('.button');
-    const modal = document.querySelector('.modal');
+    const bottomSheet = document.querySelector('.bottom-sheet');
     const tabs = document.querySelectorAll('.tab');
     const levelButtons = document.querySelectorAll('.level-button');
 
     learnButton.addEventListener('click', function() {
-      modal.classList.add('active');
+      bottomSheet.classList.add('active');
     });
 
     tabs.forEach(tab => {
@@ -285,6 +293,27 @@
         this.classList.add('active');
       });
     });
+
+    // Close bottom sheet by swiping down
+    let touchstartY = 0;
+    let touchendY = 0;
+
+    const bottomSheetContent = document.querySelector('.bottom-sheet-content');
+
+    bottomSheetContent.addEventListener('touchstart', function(event) {
+      touchstartY = event.changedTouches[0].screenY;
+    });
+
+    bottomSheetContent.addEventListener('touchend', function(event) {
+      touchendY = event.changedTouches[0].screenY;
+      handleSwipeGesture();
+    });
+
+    function handleSwipeGesture() {
+      if (touchendY < touchstartY) {
+        bottomSheet.classList.remove('active');
+      }
+    }
   </script>
 </body>
 </html>
