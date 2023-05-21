@@ -39,7 +39,6 @@
       padding: 2px 20px;
     }
 
-    /* Остальной стиль оставьте без изменений */
     .tab-bar .tab {
       color: #a9a9a9;
       text-decoration: none;
@@ -63,6 +62,31 @@
       font-size: 24px;
       margin-bottom: 5px;
     }
+
+    .tab-bar .tab-center {
+      background-color: #fff;
+      color: #333;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.2s;
+    }
+
+    .tab-bar .tab-center:hover {
+      transform: scale(0.9);
+    }
+
+    .tab-bar .tab-center.active {
+      background-color: #333;
+      color: #fff;
+    }
+
+    .tab-bar .tab-center.active .tab-icon {
+      color: #fff;
+    }
   </style>
 </head>
 <body>
@@ -70,12 +94,12 @@
 
   <nav class="tab-bar">
     <a href="#" class="tab">
-      <i class="fas fa-home tab-icon"></i>
-    </a>
-    <a href="#" class="tab active">
-      <i class="fas fa-book tab-icon"></i>
+      <i class="fas fa-home tab-icon" id="home-icon"></i>
     </a>
     <a href="#" class="tab">
+      <i class="fas fa-book tab-icon" id="library-icon"></i>
+    </a>
+    <a href="#" class="tab tab-center">
       <i class="fas fa-plus tab-icon"></i>
     </a>
     <a href="#" class="tab">
@@ -89,7 +113,16 @@
   <!-- Здесь можете добавить контент вашей страницы Библиотеки -->
 
   <script>
-    // Добавьте скрипты, если необходимо
-  </script>
+  // Ожидаем, что ваша иконка дома имеет идентификатор "home-icon"
+  const homeIcon = document.getElementById("home-icon");
+
+  // Ожидаем, что ваша главная страница называется "index.html"
+  const homePage = "index.html";
+
+  // Обработчик клика на иконку дома
+  homeIcon.addEventListener("click", () => {
+    window.location.href = homePage;
+  });
+</script>
 </body>
 </html>
