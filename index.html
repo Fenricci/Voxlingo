@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Voxlingo</title>
@@ -224,10 +225,10 @@
 
   <nav class="tab-bar">
     <a href="#" class="tab">
-      <i class="fas fa-home tab-icon"></i>
+      <i class="fas fa-home tab-icon" id="home-icon"></i>
     </a>
     <a href="#" class="tab">
-      <i class="fas fa-book tab-icon"></i>
+      <i class="fas fa-book tab-icon" id="library-icon"></i>
     </a>
     <a href="#" class="tab tab-center">
       <i class="fas fa-plus tab-icon"></i>
@@ -315,6 +316,26 @@
       }
     }
   </script>
+  <script>
+  // Ожидаем, что ваша иконка библиотеки имеет идентификатор "library-icon"
+  const libraryIcon = document.getElementById("library-icon");
+
+  // Ожидаем, что ваша страница библиотеки называется "library.html"
+  const libraryPage = "library.html";
+
+  // Обработчик клика на иконку библиотеки
+  libraryIcon.addEventListener("click", () => {
+    window.location.href = libraryPage;
+  });
+</script>
+<script>
+  const homeIcon = document.getElementById("home-icon");
+  const homePage = "index.html";
+  homeIcon.addEventListener("click", () => {
+    window.location.href = homePage;
+  });
+</script>
+
 </body>
 </html>
 

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voxlingo - Библиотека</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+    /* Ваш стиль здесь */
+
+    /* Пример стиля для страницы Библиотеки */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+
+    .library-header {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 24px;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .tab-bar {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: 400px;
+      background-color: #333;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2px 20px;
+    }
+
+    /* Остальной стиль оставьте без изменений */
+    .tab-bar .tab {
+      color: #a9a9a9;
+      text-decoration: none;
+      font-size: 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: color 0.3s;
+    }
+
+    .tab-bar .tab:hover {
+      color: #fff;
+    }
+
+    .tab-bar .tab.active {
+      color: #fff;
+    }
+
+    .tab-bar .tab-icon {
+      font-size: 24px;
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="library-header">Библиотека</h1>
+
+  <nav class="tab-bar">
+    <a href="#" class="tab">
+      <i class="fas fa-home tab-icon"></i>
+    </a>
+    <a href="#" class="tab active">
+      <i class="fas fa-book tab-icon"></i>
+    </a>
+    <a href="#" class="tab">
+      <i class="fas fa-plus tab-icon"></i>
+    </a>
+    <a href="#" class="tab">
+      <i class="fas fa-chart-bar tab-icon"></i>
+    </a>
+    <a href="#" class="tab">
+      <i class="fas fa-user tab-icon"></i>
+    </a>
+  </nav>
+
+  <!-- Здесь можете добавить контент вашей страницы Библиотеки -->
+
+  <script>
+    // Добавьте скрипты, если необходимо
+  </script>
+</body>
+</html>
