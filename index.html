@@ -311,7 +311,7 @@
     });
 
     function handleSwipeGesture() {
-      if (touchendY < touchstartY) {
+      if (touchendY > touchstartY) {
         bottomSheet.classList.remove('active');
       }
     }
