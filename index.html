@@ -246,7 +246,7 @@
       <h2 class="modal-title">Я владею языком на уровне:</h2>
       <a href="#" class="level-button">
         <span class="level-button-text">A0</span>
-        <span class="level-button-description">Beginner<br>Я знаю менее 1000 слов, понимаю лишь элементарную лексику</span>
+        <span class="level-button-description"><b>Beginner</b> Я знаю менее 1000 слов, понимаю лишь элементарную лексику</span>
       </a>
       <a href="#" class="level-button">
         <span class="level-button-text">A1</span>
@@ -295,17 +295,18 @@
       });
     });
 
-    // Close bottom sheet by swiping down
+      // Close bottom sheet by swiping down from the top bar
     let touchstartY = 0;
     let touchendY = 0;
 
+    const topBar = document.querySelector('.top-bar');
     const bottomSheetContent = document.querySelector('.bottom-sheet-content');
 
-    bottomSheetContent.addEventListener('touchstart', function(event) {
+    topBar.addEventListener('touchstart', function(event) {
       touchstartY = event.changedTouches[0].screenY;
     });
 
-    bottomSheetContent.addEventListener('touchend', function(event) {
+    topBar.addEventListener('touchend', function(event) {
       touchendY = event.changedTouches[0].screenY;
       handleSwipeGesture();
     });
@@ -315,6 +316,7 @@
         bottomSheet.classList.remove('active');
       }
     }
+
   </script>
   <script>
   // Ожидаем, что ваша иконка библиотеки имеет идентификатор "library-icon"
