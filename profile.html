@@ -4,12 +4,12 @@
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Voxlingo - Библиотека</title>
+  <title>Voxlingo - Профиль</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <style>
     /* Ваш стиль здесь */
 
-    /* Пример стиля для страницы Библиотеки */
+    /* Пример стиля для страницы Профиля */
     body {
       margin: 0;
       padding: 0;
@@ -18,7 +18,7 @@
       color: #fff;
     }
 
-    .library-header {
+    .user-header {
       text-align: center;
       margin-top: 20px;
       font-size: 24px;
@@ -91,7 +91,7 @@
   </style>
 </head>
 <body>
-  <h1 class="library-header">Библиотека</h1>
+  <h1 class="user-header">Профиль</h1>
 
   <nav class="tab-bar">
     <a href="#" class="tab">
@@ -117,34 +117,34 @@
   // Ожидаем, что ваша иконка дома имеет идентификатор "home-icon"
   const homeIcon = document.getElementById("home-icon");
 
+  // Ожидаем, что ваша иконка библиотеки имеет идентификатор "library-icon"
+  const libraryIcon = document.getElementById("library-icon");
+
   // Ожидаем, что ваша иконка прогресса имеет идентификатор "progress-icon"
   const progressIcon = document.getElementById("progress-icon");
 
-  // Иконка профиля имеет идентификатор "user-icon"
-  const userIcon = document.getElementById("user-icon");
-
-  // Ожидаем, что ваша главная страница называется "index.html"
-  const homePage = "index.html";
+  // Ожидаем, что ваша страница библиотеки называется "library.html"
+  const libraryPage = "library.html";
 
   // Ожидаем, что ваша страница прогресса называется "progress.html"
   const progressPage = "progress.html";
 
-  // Страница профиля называется "profile.html"
-  const userPage = "profile.html";
+  // Ожидаем, что ваша главная страница называется "index.html"
+  const homePage = "index.html";
 
   // Обработчик клика на иконку дома
   homeIcon.addEventListener("click", () => {
     window.location.href = homePage;
   });
 
+  // Обработчик клика на иконку библиотеки
+  libraryIcon.addEventListener("click", () => {
+    window.location.href = libraryPage;
+  });
+
   // Обработчик клика на иконку прогресса
   progressIcon.addEventListener("click", () => {
     window.location.href = progressPage;
-  });
-
-  // Обработчик клика на иконку профиля
-  userIcon.addEventListener("click", () => {
-    window.location.href = userPage;
   });
 </script>
 </body>

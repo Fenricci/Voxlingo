@@ -18,7 +18,7 @@
       color: #fff;
     }
 
-    .library-header {
+    .progress-header {
       text-align: center;
       margin-top: 20px;
       font-size: 24px;
@@ -91,7 +91,7 @@
   </style>
 </head>
 <body>
-  <h1 class="library-header">Библиотека</h1>
+  <h1 class="progress-header">Прогресс</h1>
 
   <nav class="tab-bar">
     <a href="#" class="tab">
@@ -117,8 +117,8 @@
   // Ожидаем, что ваша иконка дома имеет идентификатор "home-icon"
   const homeIcon = document.getElementById("home-icon");
 
-  // Ожидаем, что ваша иконка прогресса имеет идентификатор "progress-icon"
-  const progressIcon = document.getElementById("progress-icon");
+  // Ожидаем, что ваша иконка библиотеки имеет идентификатор "library-icon"
+  const libraryIcon = document.getElementById("library-icon");
 
   // Иконка профиля имеет идентификатор "user-icon"
   const userIcon = document.getElementById("user-icon");
@@ -126,8 +126,8 @@
   // Ожидаем, что ваша главная страница называется "index.html"
   const homePage = "index.html";
 
-  // Ожидаем, что ваша страница прогресса называется "progress.html"
-  const progressPage = "progress.html";
+  // Ожидаем, что ваша страница библиотеки называется "library.html"
+  const libraryPage = "library.html";
 
   // Страница профиля называется "profile.html"
   const userPage = "profile.html";
@@ -137,9 +137,9 @@
     window.location.href = homePage;
   });
 
-  // Обработчик клика на иконку прогресса
-  progressIcon.addEventListener("click", () => {
-    window.location.href = progressPage;
+  // Обработчик клика на иконку библиотеки
+  libraryIcon.addEventListener("click", () => {
+    window.location.href = libraryPage;
   });
 
   // Обработчик клика на иконку профиля

@@ -207,13 +207,16 @@
 
     .level-button-description {
       font-size: 16px;
-      color: #fff;
+      color: #808080;
+      width: 380px;
+      margin: auto;
+      text-align: left;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <img src="C:\Users\Админ\Voxlingo\logo.jpg" alt="Voxlingo Logo" class="logo">
+    <img src="/Games/logo.jpg" alt="Voxlingo Logo" class="logo">
     <h1 class="title">Voxlingo</h1>
 
     <div class="card">
@@ -230,14 +233,14 @@
     <a href="#" class="tab">
       <i class="fas fa-book tab-icon" id="library-icon"></i>
     </a>
-    <a href="#" class="tab tab-center">
+    <a href="#" class="tab tab-center" id="add-icon">
       <i class="fas fa-plus tab-icon"></i>
     </a>
     <a href="#" class="tab">
-      <i class="fas fa-chart-bar tab-icon"></i>
+      <i class="fas fa-chart-bar tab-icon" id="progress-icon"></i>
     </a>
     <a href="#" class="tab">
-      <i class="fas fa-user tab-icon"></i>
+      <i class="fas fa-user tab-icon" id="user-icon"></i>
     </a>
   </nav>
 
@@ -246,7 +249,7 @@
       <h2 class="modal-title">Я владею языком на уровне:</h2>
       <a href="#" class="level-button">
         <span class="level-button-text">A0</span>
-        <span class="level-button-description"><b>Beginner</b> Я знаю менее 1000 слов, понимаю лишь элементарную лексику</span>
+        <span class="level-button-description">Beginner<br>Я знаю менее 1000 слов, понимаю лишь элементарную лексику</span>
       </a>
       <a href="#" class="level-button">
         <span class="level-button-text">A1</span>
@@ -295,25 +298,29 @@
       });
     });
 
-      // Close bottom sheet by swiping down from the top bar
+    // Закрытие Bottomsheet при клике вне его области
+  bottomSheet.addEventListener("click", function (event) {
+  if (event.target.classList.contains("bottom-sheet")) {
+    bottomSheet.classList.remove("active");
+  }
+  });
+
+    // Закрытие Bottomsheet по свайпу вниз
     let touchstartY = 0;
     let touchendY = 0;
 
-    const topBar = document.querySelector('.top-bar');
-    const bottomSheetContent = document.querySelector('.bottom-sheet-content');
-
-    topBar.addEventListener('touchstart', function(event) {
+    bottomSheet.addEventListener("touchstart", function (event) {
       touchstartY = event.changedTouches[0].screenY;
     });
 
-    topBar.addEventListener('touchend', function(event) {
+    bottomSheet.addEventListener("touchend", function (event) {
       touchendY = event.changedTouches[0].screenY;
       handleSwipeGesture();
     });
 
     function handleSwipeGesture() {
       if (touchendY > touchstartY) {
-        bottomSheet.classList.remove('active');
+        bottomSheet.classList.remove("active");
       }
     }
 
@@ -322,12 +329,34 @@
   // Ожидаем, что ваша иконка библиотеки имеет идентификатор "library-icon"
   const libraryIcon = document.getElementById("library-icon");
 
+  // Ожидаем, что ваша иконка прогресса имеет идентификатор "progress-icon"
+  const progressIcon = document.getElementById("progress-icon");
+
+  // Иконка профиля имеет идентификатор "user-icon"
+  const userIcon = document.getElementById("user-icon");
+
   // Ожидаем, что ваша страница библиотеки называется "library.html"
   const libraryPage = "library.html";
+
+  // Ожидаем, что ваша страница прогресса называется "progress.html"
+  const progressPage = "progress.html";
+
+  // Страница профиля называется "profile.html"
+  const userPage = "profile.html";
 
   // Обработчик клика на иконку библиотеки
   libraryIcon.addEventListener("click", () => {
     window.location.href = libraryPage;
+  });
+
+  // Обработчик клика на иконку прогресса
+  progressIcon.addEventListener("click", () => {
+    window.location.href = progressPage;
+  });
+
+  // Обработчик клика на иконку профиля
+  userIcon.addEventListener("click", () => {
+    window.location.href = userPage;
   });
 </script>
 </body>
